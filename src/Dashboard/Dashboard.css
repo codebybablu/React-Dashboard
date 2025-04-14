@@ -1,0 +1,201 @@
+/* Ensure full screen layout */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f1f5f9;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Enhanced Sidebar with overflow handling */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevents sidebar from shrinking */
+}
+
+.sidebar.collapsed {
+  width: 70px;
+  padding: 20px 8px; /* Reduced side padding */
+}
+
+/* Logo with smooth transition */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .logo {
+  font-size: 0;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar.collapsed .logo::after {
+  content: "M";
+  font-size: 1.5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Menu items with text overflow handling */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.sidebar li {
+  margin: 12px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar li:hover {
+  color: #3498db;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar.collapsed li {
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.sidebar li span {
+  transition: opacity 0.2s ease, margin-left 0.3s ease;
+  margin-left: 10px;
+}
+
+.sidebar.collapsed li span {
+  opacity: 0;
+  width: 0;
+  margin-left: 0;
+}
+
+/* Enhanced Logout button */
+.logout-button {
+  margin-top: auto;
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sidebar.collapsed .logout-button {
+  padding: 12px 0;
+}
+
+.logout-button .button-text {
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.sidebar.collapsed .logout-button .button-text {
+  opacity: 0;
+  width: 0;
+  margin-left: 0;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+/* Main content area (unchanged) */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar (unchanged) */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.menu-btn {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  color: white;
+  background: #2c3e50;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Cards (unchanged) */
+.cards-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.card p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Footer (unchanged) */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  color: #777;
+}
