@@ -1,3 +1,9 @@
+1. Register
+2. Login
+3. Logout
+4. Forget Password
+5. Dashboard
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
